@@ -10,6 +10,9 @@ INSERT INTO accounts (
 -- name: GetAccount :one
 SELECT * from accounts where id = $1 limit 1;
 
+-- name: GetAccountForUpdate :one
+SELECT * from accounts where id = $1 limit 1 FOR NO KEY UPDATE;
+
 -- name: ListAccounts :many
 select * from accounts order by id desc limit $1 offset $2;
 
