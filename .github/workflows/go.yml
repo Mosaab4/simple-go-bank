@@ -41,8 +41,11 @@ jobs:
           sudo mv migrate.linux-amd64 /usr/bin/migrate
           which migrate
 
+      - name: Install dependencies
+        run: make
+
       - name: run migrations
         run: make migrateup
-        
+
       - name: Test
         run: make test
